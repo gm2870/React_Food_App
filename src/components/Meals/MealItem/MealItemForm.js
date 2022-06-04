@@ -2,6 +2,7 @@ import Input from '../../UI/Input';
 import classes from './MealItemForm.module.css';
 
 const MealItemForm = (props) => {
+  const addMealHandler = () => {};
   return (
     <form className={classes.form}>
       <Input
@@ -15,7 +16,7 @@ const MealItemForm = (props) => {
           defaultValue: '1',
         }}
       />
-      <button>+ Add</button>
+      <button onClick={addMealHandler}>+ Add</button>
     </form>
   );
 };

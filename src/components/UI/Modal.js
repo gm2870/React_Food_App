@@ -6,7 +6,7 @@ const Modal = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
-        <Backdrop />,
+        <Backdrop onClick={props.onClose} />,
         document.getElementById('backdrop-root')
       )}
       {ReactDOM.createPortal(
@@ -17,8 +17,8 @@ const Modal = (props) => {
   );
 };
 
-const Backdrop = () => {
-  return <div className={classes.backdrop}></div>;
+const Backdrop = (props) => {
+  return <div onClick={props.onClick} className={classes.backdrop}></div>;
 };
 const Overlay = (props) => {
   return (
