@@ -33,8 +33,9 @@ const AvailableMeals = () => {
   ));
   return (
     <section className={classes.meals}>
+      {error && <p className={classes['error-text']}>{error.message}</p>}
       {isLoading && <p className={classes['loading-text']}>Loading meals...</p>}
-      {melasList && (
+      {meals?.length && (
         <Card>
           <ul>{melasList}</ul>
         </Card>
