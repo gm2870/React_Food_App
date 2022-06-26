@@ -19,11 +19,12 @@ const MealItemForm = (props) => {
     }
     props.onAddToCart(+enteredAmount);
   };
-
+  const validateInput = (value) => value !== undefined;
   return (
     <form onSubmit={submitHandler} className={classes.form}>
       <Input
         ref={inputRef}
+        validateInput={validateInput}
         label="Amount"
         input={{
           id: 'amount_' + props.id,
