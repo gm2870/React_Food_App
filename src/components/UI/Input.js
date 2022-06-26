@@ -3,11 +3,13 @@ import useInput from '../../hooks/use-input';
 import classes from './Input.module.css';
 
 const Input = react.forwardRef((props, ref) => {
-  console.log(props.validateInput);
-  const { value, isValid, hasError, valueChangeHandler, inputBlurHandler } =
-    useInput(props.validateInput);
-
-  const classNames = isValid ? classes.input : `${classes.input} invalid`;
+  const { value, hasError, valueChangeHandler, inputBlurHandler } = useInput(
+    props.defaultVal,
+    props.validateInput
+  );
+  const classNames = !hasError
+    ? classes.control
+    : `${classes.control} ${classes.invalid}`;
   return (
     <div className={classNames}>
       <label htmlFor={props.input.id}>{props.label}</label>

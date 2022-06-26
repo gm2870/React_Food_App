@@ -8,7 +8,11 @@ const Checkout = (props) => {
   const cartCtx = useContext(CartContext);
   const confirmHandler = (event) => {
     event.preventDefault();
-    console.log(cartCtx.items);
+    const vals = {};
+    inputs.forEach((input) => {
+      vals[input.id] = input.ref.current.value;
+    });
+    console.log(vals);
   };
   const inputs = [
     {
